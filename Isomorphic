@@ -1,0 +1,65 @@
+package programs;
+
+import java.util.HashMap;
+import java.util.Map;
+
+public class Isomorphic {
+
+	public static void main(String[] args) {
+		
+		/*
+		Given two strings s and t, determine if they are isomorphic.
+
+		Two strings s and t are isomorphic if the characters in s can be replaced to get t.
+
+		All occurrences of a character must be replaced with another character while preserving the order of characters. 
+		No two characters may map to the same character, but a character may map to itself.
+
+		 
+
+		Example 1:
+		Input: s = "egg", t = "add"
+		Output: true
+
+		Example 2:
+		Input: s = "foo", t = "bar"
+		Output: false
+
+		Example 3:
+		Input: s = "paper", t = "title"
+		Output: true
+		
+		*/
+		
+		String s1 = "foo";
+		String s2 = "bar";
+		
+		/*String s1 = "egg";
+		String s2 = "add";*/
+		
+		Map<Character, Character> m = new HashMap<>();
+		
+		System.out.println(m);
+		
+		for (int i = 0; i < s1.length(); i++) {
+				
+			if(!(m.containsKey(s1.charAt(i)))) {
+				m.put(s1.charAt(i),s2.charAt(i));
+			}
+			else {
+				Character p = m.get(s1.charAt(i)); // we get value of repeated key
+				
+				if(!(p.equals(s2.charAt(i)))) {
+					System.out.println("Not Isomorphic");
+					System.exit(0);
+				}
+					
+			}
+		}
+		
+		System.out.println(m);
+		System.out.println("Isomorphic");
+		
+		
+	}
+}
